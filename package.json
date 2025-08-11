@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "openai": "^5.12.2",
+    "@google/generative-ai": "^0.24.1",
     "vue": "^3.4.27"
   },
   "devDependencies": {

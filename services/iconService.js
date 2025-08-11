@@ -1,23 +1,31 @@
-import OpenAI from "openai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 export async function fetchAIKeywords(description, apiKey) {
-  const openai = new OpenAI({ apiKey: apiKey, dangerouslyAllowBrowser: true });
+  const genAI = new GoogleGenerativeAI(apiKey);
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
   console.log("[Service] Fetch AI Keywords:", description);
 
   try {
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [
-        {
-          role: "system",
-          content: "You turn icon descriptions into short icon keywords.",
-        },
-        { role: "user", content: description },
-      ],
-    });
-    const data = await completion.json();
-    console.log("[Service] AI API Response:", completion);
+    const prompt = `
+      You are an assistant that converts icon descriptions into short keyword tags.
+      The keywords will be used to search icon libraries like Iconify.
+      Rules:
+      - Output only a comma-separated list of 3–6 keywords.
+      - Use lowercase.
+      - No explanations or extra text.
 
-    return data.choices[0].message.content.split(",").map((k) => k.trim());
+      Description: ${description}
+    `;
+    const result = await model.generateContent(prompt);
+
+    // This is the actual text output from Gemini
+    const text = result.response.text().trim();
+    console.log("[Service] Gemini Output:", text);
+
+    // Convert the comma-separated list to an array of keywords
+    return text
+      .split(",")
+      .map((k) => k.trim().toLowerCase())
+      .filter((k) => k);
   } catch (error) {
     console.error("[Service] fetchAIKeywords error:", error);
     throw error;
