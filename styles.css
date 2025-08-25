@@ -1,86 +1,245 @@
-html {
-  font-size: 62.5%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 28px;
 }
 
-body {
+.app {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  height: 200px;
+}
+
+.container {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Styled Select (Matches Input Design) */
+.custom-select {
+  background: rgba(255, 255, 255, 0.664);
+  border: none;
+  border-radius: 22px;
+  padding: 10px;
+  font-size: 14px;
+  color: #17202A;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 40px;
+  width: 120px;
+  /* Matches input height */
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-select:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Input */
+.input__container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.664);
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 4rem);
-  min-width: 300px;
-  padding: 2rem;
-  font-size: 1.8rem;
-  line-height: 1.618;
-  max-width: 38em;
-  margin: auto;
-  color: #c9c9c9;
-  background-color: #0A0C10;
+  gap: 5px;
+  border-radius: 22px;
+  width: 300px;
+  transition: transform 400ms;
+  height: 20px;
+  /* Matches select & button */
 }
 
-@media (max-width: 684px) {
-  body {
-    font-size: 1.53rem;
-  }
+.shadow__input {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 45px;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  filter: blur(30px);
+  border-radius: 20px;
+  background-color: #999cff;
+  background-image: radial-gradient(at 85% 51%, hsla(60, 60%, 61%, 1) 0px, transparent 50%),
+    radial-gradient(at 74% 68%, #9ca3ed 0px, transparent 50%),
+    radial-gradient(at 64% 79%, #d189ec 0px, transparent 50%),
+    radial-gradient(at 75% 16%, hsla(283, 60%, 72%, 1) 0px, transparent 50%),
+    radial-gradient(at 90% 65%, hsla(153, 70%, 64%, 1) 0px, transparent 50%),
+    radial-gradient(at 91% 83%, hsla(283, 74%, 69%, 1) 0px, transparent 50%),
+    radial-gradient(at 72% 91%, hsla(213, 75%, 75%, 1) 0px, transparent 50%);
 }
 
-@media (max-width: 382px) {
-  body {
-    font-size: 1.35rem;
-  }
-}
-
-h1 {
-  line-height: 1.1;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-  font-size: 4.7em;
-}
-
-@media (max-width: 684px) {
-  h1 {
-    font-size: 2.7em;
-  }
-}
-
-p {
-  margin-top: 0px;
-  margin-bottom: 2.5rem;
-}
-
-a {
-  text-decoration: none;
-  border-bottom: 2px solid #c9c9c9;
-  color: #e5e7eb;
-}
-
-
-img {
-  height: auto;
-  max-width: 100%;
-  margin-top: 0px;
-  margin-bottom: 2.5rem;
-}
-
-@media (max-width: 684px) {
-  img {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-}
-
-body {
+.input__button__shadow {
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: transform 400ms, background 400ms;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 4rem);
+  border-radius: 12px;
+  padding: 5px;
 }
 
-header > div {
+.input__button__shadow:hover {
+  background: rgba(255, 255, 255, 0.411);
+}
+
+.input__search {
+  width: 100%;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  padding: 8px;
+  position: relative;
+  background: transparent;
+}
+
+/* Button */
+/* From Uiverse.io by mrhyddenn */
+.shadow__btn {
+  padding: 10px 20px;
+  border: none;
+  font-size: 17px;
+  color: #fff;
+  border-radius: 7px;
+
+  transition: 0.5s;
+  transition-property: box-shadow;
+}
+
+.shadow__btn {
+  background: rgba(255, 255, 255, 0.664);
+  border: none;
+  border-radius: 22px;
+  padding: 10px;
+  font-size: 14px;
+  color: #17202A;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 40px;
+  width: 120px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.shadow__btn:hover {
+  transform: translateY(-5px);
+  ;
+}
+
+.results__container {
+  background: #ffffff3a;
+  width: 100%;
+  border-radius: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 1rem;
+}
+
+.resultsIcon {
+  width: fit-content;
+  min-width: 100px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  cursor: pointer;
+  transition: transform 200ms;
+}
+
+
+.settings-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000000;
+  border: 1px solid #f0f0f0;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.settings-dialog {
+  position: fixed;
+  width: 600px;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.4);
   display: flex;
   align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.dialog-content {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  color: #000000;
+}
+
+.api-input {
+  background: rgba(255, 255, 255, 0.664);
+  padding: 10px;
+  border-radius: 22px;
+  border: 1px solid #efefef;
+  color: #000;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: 5px;
+}
+
+.save-btn,
+.cancel-btn {
+  background: rgba(255, 255, 255, 0.664);
+  border: none;
+  border-radius: 22px;
+  padding: 10px;
+  font-size: 14px;
+  color: #17202A;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 40px;
+  width: 100px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+}
+
+.save-btn {
+  background-color: #2563eb;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #ffffff;
+  color: black;
 }
