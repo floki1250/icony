@@ -1,5 +1,7 @@
-# 🌟 Icony — AI-Powered Icon Search Extension
+<img width="76" height="76" alt="image" src="https://github.com/user-attachments/assets/2e69063c-a945-4e46-b0a9-1766f3105613" />
 
+# 🌟 Icony — AI-Powered Icon Search Extension
+[![Build and Release Extension](https://github.com/floki1250/icony/actions/workflows/build.yml/badge.svg)](https://github.com/floki1250/icony/actions/workflows/build.yml)
 Icony is a modern and sleek **browser extension** built with **Vue 3** + **TypeScript** that lets you **search icons dynamically** from multiple icon sets.  
 It uses **Google Gemini API** to enhance icon discovery based on natural language queries, making it **fast, smart, and efficient**.
 
