@@ -92,8 +92,3 @@ Feel free to open issues or submit pull requests.
 
 ---
 
-## 💡 Credits
-
-- [Vue 3](https://vuejs.org/)
-- [Vite](https://vitejs.dev/)
-- [Iconify](https://iconify.design/)
