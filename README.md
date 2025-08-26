@@ -59,7 +59,7 @@ npm run build
 
 3. **Start searching for icons!**
    - Use natural language queries to find the perfect icon.
-   - Browse and copy SVG or icon code directly.
+   - Browse and copy icon code directly.
 
 ---
 
