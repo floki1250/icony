@@ -4,7 +4,7 @@ name: Build and Release Extension
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - 'v1.0.0'
 
 jobs:
   build-and-release:
@@ -29,9 +29,9 @@ jobs:
       - name: Zip extension
         run: |
           cd dist
-          zip -r ../extension.zip .
+          zip -r ../icony.zip .
         
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          files: extension.zip
+          files: icony.zip
