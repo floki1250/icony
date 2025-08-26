@@ -88,7 +88,7 @@ Feel free to open issues or submit pull requests.
 
 ## 📄 License
 
-[MIT](LICENSE)
+[Creative Commons Attribution-NonCommercial 4.0 International License](LICENSE)
 
 ---
 
