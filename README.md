@@ -1,35 +1,94 @@
-# icony
+# 🌟 Icony — AI-Powered Icon Search Extension
 
-> A modern browser extension new tab page example built with Extension.js and Vue. Demonstrates how to create interactive new tab pages using Vue components with clean, maintainable code.
+Icony is a modern and sleek **browser extension** built with **Vue 3** + **TypeScript** that lets you **search icons dynamically** from multiple icon sets.  
+It uses **Google Gemini API** to enhance icon discovery based on natural language queries, making it **fast, smart, and efficient**.
 
-## Available Scripts
+---
 
-In the project directory, you can run the following scripts:
+## ✨ Features
 
-### pnpm dev
+- 🔍 **AI-Powered Search** — Find icons instantly using **Gemini**.
+- 🎨 **Dynamic Icon Sets** — Fetch icon sets in real time from [Iconify](https://iconify.design/).
+- ⚡ **Fast & Lightweight** — Built with **Vue 3 + Vite** for top performance.
+- 🛠️ **API Key Management** — Built-in settings dialog to manage your Gemini API key.
+---
 
-**Development Mode**: This command runs your extension in development mode. It will launch a new browser instance with your extension loaded. The page will automatically reload whenever you make changes to your code, allowing for a smooth development experience.
+## 📦 Installation
 
-```bash
-pnpm dev
-```
-
-### pnpm start
-
-**Production Preview**: This command runs your extension in production mode. It will launch a new browser instance with your extension loaded, simulating the environment and behavior of your extension as it will appear once published.
-
-```bash
-pnpm start
-```
-
-### pnpm build
-
-**Build for Production**: This command builds your extension for production. It optimizes and bundles your extension, preparing it for deployment to the target browser's store.
+Clone the repository:
 
 ```bash
-pnpm build
+git clone https://github.com/floki1250/icony.git
+cd icony
 ```
 
-## Learn More
+Install dependencies:
 
-To learn more about creating cross-browser extensions with Extension.js, visit the [official documentation](https://extension.js.org).
+```bash
+npm install
+```
+
+Build the extension:
+
+```bash
+npm run build
+```
+
+---
+
+## 🧩 Usage
+
+1. **Load the extension in your browser:**
+   - For Chrome/Edge:
+     - Go to `chrome://extensions/`
+     - Enable "Developer mode"
+     - Click "Load unpacked" and select the `dist` folder inside the project directory.
+   - For Firefox:
+     - Go to `about:debugging#/runtime/this-firefox`
+     - Click "Load Temporary Add-on" and select the `manifest.json` from the `dist` folder.
+
+2. **Set your Gemini API key:**
+   - Click the extension icon in your browser.
+   - Open the settings dialog.
+   - Paste your [Google Gemini API key](https://aistudio.google.com/app/apikey) and save.
+
+3. **Start searching for icons!**
+   - Use natural language queries to find the perfect icon.
+   - Browse and copy SVG or icon code directly.
+
+---
+
+## ⚙️ Development
+
+To start a development server with hot reload:
+
+```bash
+npm run dev
+```
+
+---
+
+## 🛡️ Security
+
+Your Gemini API key is stored **locally** in your browser and never sent to any third-party server except Google Gemini.
+
+---
+
+## 🙌 Contributing
+
+Contributions are welcome!  
+Feel free to open issues or submit pull requests.
+
+---
+
+## 📄 License
+
+[MIT](LICENSE)
+
+---
+
+## 💡 Credits
+
+- [Vue 3](https://vuejs.org/)
+- [Vite](https://vitejs.dev/)
+- [Iconify](https://iconify.design/)
