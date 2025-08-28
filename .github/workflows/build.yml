@@ -4,8 +4,10 @@ name: Build and Release Extension
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
     tags:
-      - 'v1.0.2'
+      - 'v*' 
 
 jobs:
   build-and-release:
