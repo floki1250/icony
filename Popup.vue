@@ -41,24 +41,21 @@
     <div class="flex flex-col w-full gap-4">
       <!-- Icon Set Selector -->
       <!-- Replace your <select> with this -->
-      <div class="input">
-        <input type="text" v-model="query" placeholder="Search icon set..." class="search-input"
-          @focus="showDropdown = true" @blur="hideDropdown" />
+      <div class="rounded-xl  bg-base-100 shadow-md w-full relative">
+        <input type="search" v-model="searchQuery" placeholder="Search icon set..." class="rounded-xl p-2.5 w-full"
+          @input="showDropdown = true" @focus="showDropdown = true" @blur="hideDropdown" />
 
         <!-- Dropdown List -->
-        <ul v-if="showDropdown && filteredIconSets.length" class="dropdown">
+        <ul v-show="showDropdown && filteredIconSets.length"
+          class="absolute z-50 bg-white top-10 max-h-42 w-full overflow-auto p-2 rounded-2xl shadow-md">
           <li v-for="(iconset, index) in filteredIconSets" :key="index" @mousedown.prevent="selectIconSet(iconset)"
-            class="dropdown-item">
+            class="cursor-pointer p-1 hover:bg-base-200 rounded-xl">
             {{ iconset.name }}
           </li>
         </ul>
       </div>
 
-      <select id="iconsets" v-model="selectedIconSet" class="select select-ghost bg-base-100 shadow-md w-full ">
-        <option v-for="(iconset, index) in iconsets" :key="index" :value="iconset">
-          {{ iconset.name }}
-        </option>
-      </select>
+
 
       <!-- Search Bar -->
       <div class="flex gap-2">
@@ -83,7 +80,7 @@
                shadow-md hover:border-primary  transition duration-300">
         <img :src="getIconUrl(icon)" :alt="icon" class="w-10 transition-transform duration-300 group-hover:rotate-6" />
         <p class="text-xs text-center ">{{ icon }}</p>
-        <button class="btn btn-link" @click="gotoIconify(icon)">
+        <button class="btn rounded-xl btn-link" @click="gotoIconify(icon)">
           <Icon icon="hugeicons:link-02" />
         </button>
 
@@ -98,10 +95,10 @@
         <h3 class="font-bold text-lg mb-3">Gemini API Key</h3>
         <input v-model="apiKey" type="password" class="input w-full mb-4   " placeholder="Enter your API key" />
         <div class="modal-action">
-          <button class="btn btn-primary text-white" @click="saveApiKey">
+          <button class="btn rounded-xl btn-primary text-white" @click="saveApiKey">
             <Icon icon="hugeicons:checkmark-circle-01" class="w-5 h-5 mr-1" /> Save
           </button>
-          <button class="btn btn-error text-white" @click="openSettings = false">
+          <button class="btn rounded-xl btn-error text-white" @click="openSettings = false">
             <Icon icon="hugeicons:cancel-circle" class="w-5 h-5 mr-1" /> Cancel
           </button>
         </div>
@@ -119,6 +116,7 @@ const { text, copy, copied, isSupported } = useClipboard({ source })
 const iconsets = ref<{ name: string; prefix: string }[]>([])
 const selectedIconSet = ref<{ name: string; prefix: string } | null>(null)
 const query = ref('')
+const searchQuery = ref('')
 const results = ref<string[]>([])
 const loading = ref(false)
 const openSettings = ref(false)
@@ -160,13 +158,13 @@ const showDropdown = ref(false);
 // Filter results based on the search query
 const filteredIconSets = computed(() =>
   iconsets.value.filter(iconset =>
-    iconset.name.toLowerCase().includes(query.value.toLowerCase())
+    iconset.name.toLowerCase().includes(searchQuery.value.toLowerCase())
   )
 );
 
 function selectIconSet(iconset: { name: string; prefix: string }) {
   selectedIconSet.value = iconset;
-  query.value = iconset.name;
+  searchQuery.value = iconset.name;
   showDropdown.value = false;
 }
 
