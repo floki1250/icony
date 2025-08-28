@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - 'v1.0.0'
+      - 'v1.0.2'
 
 jobs:
   build-and-release:
