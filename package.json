@@ -2,7 +2,7 @@
   "private": true,
   "name": "icony",
   "description": "Icony is a modern and sleek **browser extension** built with **Vue 3** + **TypeScript** that lets you **search icons dynamically** from multiple icon sets.  It uses **Google Gemini API** to enhance icon discovery based on natural language queries, making it fast, smart, and efficient",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "author": {
     "name": "Adam Dardour",
     "email": "adam.dardour@outlook.com",
