@@ -1,13 +1,10 @@
-
 name: Build and Release Extension
 
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
     tags:
-      - 'v*' 
+      - 'v*.*.*'  # Trigger only on semantic version tags like v1.0.0
 
 jobs:
   build-and-release:
@@ -15,26 +12,49 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout
+      # 1️⃣ Checkout the repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'  # Automatically cache node_modules
 
+      # 3️⃣ Install dependencies
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
+      # 4️⃣ Build the extension
       - name: Build extension
         run: npm run build
 
-      - name: Zip extension
+      # 5️⃣ Zip the build
+      - name: Package extension
         run: |
           cd dist
           zip -r ../icony.zip .
-        
-      - name: Release
+
+      # 6️⃣ Generate changelog (optional, from commits)
+      - name: Generate changelog
+        id: changelog
+        run: |
+          echo "CHANGELOG<<EOF" >> $GITHUB_ENV
+          git log --pretty=format:"* %s" $(git describe --tags --abbrev=0)..HEAD >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      # 7️⃣ Create GitHub Release
+      - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
           files: icony.zip
+          name: ${{ github.ref_name }}  # Tag name as release title
+          body: |
+            Release ${{ github.ref_name }}
+            
+            Changelog:
+            ${{ env.CHANGELOG }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
