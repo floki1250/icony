@@ -1,7 +1,3 @@
-[![Build and Release Extension](https://github.com/floki1250/icony/actions/workflows/build.yml/badge.svg)](https://github.com/floki1250/icony/actions/workflows/build.yml)
-
-
-
 # <img width="48" height="48" alt="extension_48" src="https://github.com/user-attachments/assets/cc9824cb-510e-4f3f-8894-a2f257b080c6" />  Icony — AI-Powered Icon Search Extension
 
 Icony is a modern and sleek **browser extension** built with **Vue 3** + **TypeScript** that lets you **search icons dynamically** from multiple icon sets.  
@@ -59,6 +55,12 @@ npm run build
 3. **Start searching for icons!**
    - Use natural language queries to find the perfect icon.
    - Browse and copy icon code directly.
+
+### Demo Usage 
+
+
+https://github.com/user-attachments/assets/dc8ba77d-54f7-4542-96eb-61c1e1d63817
+
 
 ---
 
