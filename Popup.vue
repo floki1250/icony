@@ -46,13 +46,18 @@
           @input="showDropdown = true" @focus="showDropdown = true" @blur="hideDropdown" />
 
         <!-- Dropdown List -->
-        <ul v-show="showDropdown && filteredIconSets.length"
-          class="absolute z-50 bg-white top-10 max-h-42 w-full overflow-auto p-2 rounded-2xl shadow-md">
-          <li v-for="(iconset, index) in filteredIconSets" :key="index" @mousedown.prevent="selectIconSet(iconset)"
-            class="cursor-pointer p-1 hover:bg-base-200 rounded-xl">
-            {{ iconset.name }}
-          </li>
-        </ul>
+        <Transition enter-active-class="transition-transform duration-300 ease-out"
+          enter-from-class="-translate-y-4 opacity-0" enter-to-class="translate-y-0 opacity-100"
+          leave-active-class="transition-transform duration-200 ease-in" leave-from-class="translate-y-0 opacity-100"
+          leave-to-class="-translate-y-4 opacity-0" mode="out-in">
+          <ul v-show="showDropdown && filteredIconSets.length"
+            class="absolute z-50 bg-white top-10 max-h-42 w-full overflow-auto p-2 rounded-2xl shadow-md">
+            <li v-for="(iconset, index) in filteredIconSets" :key="index" @mousedown.prevent="selectIconSet(iconset)"
+              class="cursor-pointer p-1 hover:bg-base-200 rounded-xl">
+              {{ iconset.name }}
+            </li>
+          </ul>
+        </Transition>
       </div>
 
 
