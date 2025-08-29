@@ -56,6 +56,13 @@ npm run build
    - Use natural language queries to find the perfect icon.
    - Browse and copy icon code directly.
 
+
+### Extension Installation
+
+
+https://github.com/user-attachments/assets/b40308b4-9634-418f-98c7-62cfb768b5f7
+
+
 ### Demo Usage 
 
 
